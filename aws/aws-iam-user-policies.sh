@@ -37,12 +37,19 @@ for user in $users; do
   group_policies=
 
   for group in $user_groups; do
-    group_policies+=$(aws iam list-attached-group-policies --group-name "$group" | jq -r ".AttachedPolicies[].PolicyName")
-    group_policies+=", "
+    group_policies+=$(aws iam list-attached-group-policies --group-name "$group" | jq -r '.AttachedPolicies | map(.PolicyName) | join(", ")')
+
+    if [ -n "$group_policies" ]; then
+      group_policies+=", "
+    fi
   done
 
+  if [ -n "$policies" ] && [ -n "$group_policies" ]; then
+    policies+=" - "
+  fi
+
   if [ -n "$group_policies" ]; then
-    policies+=" - (g) ${group_policies%??}"
+    policies+="(g) ${group_policies%??}"
   fi
 
   printf "| %-40s | %s\n" "$user" "$policies"
