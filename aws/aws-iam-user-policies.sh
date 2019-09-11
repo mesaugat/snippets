@@ -23,7 +23,7 @@ set -e
 users=$(aws iam list-users | jq -r ".Users[].UserName")
 
 if [ -z "${users}" ]; then
-  printf "Your AWS account no users. Woah! ¯\_(ツ)_/¯"
+  printf "Your AWS account has no users. Woah! ¯\_(ツ)_/¯"
 
   exit 1
 fi
