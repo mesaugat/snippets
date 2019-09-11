@@ -1,6 +1,6 @@
 # Snippets
 
-Quick code snippets that might come in handy.
+Quick code snippets and scripts that you might think you don't need.
 
 ## LICENSE
 
