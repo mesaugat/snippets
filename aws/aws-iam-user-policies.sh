@@ -17,8 +17,8 @@ set -e
 #   AWS IAM Users and Policies
 #
 #   | Username                                 | Policies
-#   | etl_dev                                  | etl_dev_s3_policy
-#   | etl_prod                                 | etl_prod_s3_policy
+#   | etl_dev                                  | DevS3Policy
+#   | etl_prod                                 | ProdS3Policy
 #   | somebody_that_i_used_to_know             | IAMUserChangePassword - (g) AdministratorAccess
 #
 ###
